@@ -1,0 +1,14 @@
+<svg width="54" height="61" viewBox="0 0 54 61" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Existing SVG paths -->
+    <path d="M36.4576 6.60025L29.5478 2.61089C28.1375 1.7967 26.3999 1.7967 24.9895 2.61089L4.27906 14.568C2.86873 15.3822 2 16.887 2 18.5155V42.4298C2 44.0583 2.86884 45.5632 4.27906 46.3774L24.9894 58.3346C26.3998 59.1489 28.1373 59.1489 29.5477 58.3346L50.258 46.3775C51.6684 45.5633 52.5371 44.0584 52.5371 42.4299V18.5156C52.5371 16.8871 51.6683 15.3823 50.258 14.5681L39.9337 8.60731" stroke="currentColor" stroke-width="2.2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M51.6077 15.7575L27.2686 12.455" stroke="currentColor" stroke-width="2.2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M52.0092 44.555L43.1396 36.0525L52.1579 16.6985" stroke="currentColor" stroke-width="2.2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M2.37988 16.6985L11.3981 36.0525L2.5286 44.555" stroke="currentColor" stroke-width="2.2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M27.2688 2V12.455L2.92969 15.7576" stroke="currentColor" stroke-width="2.2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M22.3576 36.0525H43.139L27.2683 12.455L11.3975 36.0525H18.3474" stroke="currentColor" stroke-width="2.2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M27.7627 58.9162L43.1398 36.0527" stroke="currentColor" stroke-width="2.2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M11.3975 36.0527L26.7746 58.9162" stroke="currentColor" stroke-width="2.2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Add the number "1" -->
+    <text x="24" y="33" fill="#15121B" font-size="16" font-family="Poppins" font-weight="bold">1</text>
+</svg>

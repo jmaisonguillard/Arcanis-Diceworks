@@ -40,4 +40,12 @@ class Category extends Model
         return $this->children()->with('descendants');
     }
 
+    /**
+     * Get the first 4 products in this category.
+     */
+    public function limitedProducts()
+    {
+        return $this->belongsToMany(Product::class)->limit(4);
+    }
+
 }

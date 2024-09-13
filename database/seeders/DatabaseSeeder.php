@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Category;
+use App\Models\Product;
+use App\Models\Tag;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -19,5 +22,24 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+
+        User::factory()->create([
+            'name' => 'Julian Miller',
+            'email' => 'jdavmiller90@gmail.com',
+            'password' => bcrypt('secret')
+        ]);
+
+        // Create categories
+        $categories = Category::factory()->count(10)->create();
+
+        // Create tags
+        $tags = Tag::factory()->count(10)->create();
+
+        // Create products and associate each one with random categories
+        Product::factory()->count(20)->create()->each(function ($product) use ($categories, $tags) {
+            $product->categories()->attach($categories->random(2));  // Attach 2 random categories to each product
+            // Attach 3 random tags to each product
+            $product->tags()->attach($tags->random(3));
+        });
     }
 }

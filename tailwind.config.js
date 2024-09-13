@@ -25,10 +25,12 @@ export default {
                 'bunker': '#0B1013',
                 'cinder': '#15121B',
                 'minsk': '#37378C',
+                'mine': '#3D3D3D',
                 'star-yellow': '#FFC01D',
                 'heliotrope': '#8958FE',
                 'dodger-blue': '#3483FA',
                 'athens': '#F0F0F2',
+                'bastille': '#25212D',
             },
             height: {
                 800: '50rem',

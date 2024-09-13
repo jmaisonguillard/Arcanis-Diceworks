@@ -2,21 +2,10 @@
     use Carbon\Carbon;
 @endphp
 
-<div class="w-full flex flex-col justify-center items-center px-64">
-    <div class="flex flex-row border-b border-athens py-16 justify-between w-full">
-        <h1 class="font-semibold text-black text-[2.625rem]">{{ $category->name }}</h1>
-        <a href="{{ route('products') }}" class="rounded-full bg-bunker text-white flex flex-row justify-center items-center py-2 px-4">
-            {{ __('See All Products') }}
-            <div class="bg-white text-white rounded-full w-8 h-8 flex justify-center items-center ml-4">
-                <img class="w-3 h-3" src="{{ url('images/svgs/arrow-up-right.svg') }}" alt="">
-            </div>
-        </a>
-    </div>
-
-    {{--Products--}}
+<div class="max-w-7xl mx-auto">
     <div class="py-16">
-        <div class="flex flex-row gap-x-4">
-            @foreach($category->limitedProducts as $product)
+        <div class="flex flex-row flex-wrap gap-4">
+            @foreach($products as $product)
                 <div class="flex flex-col">
                     <div class="relative">
                         @if($product->created_at >= Carbon::now()->subMonth())
@@ -51,7 +40,9 @@
                                 @endif
                             </span>
                         </div>
-                        <img class="w-72 h-72 object-cover" src="{{ $product->getMedia('*')[0]->getUrl() }}" alt="">
+                        <a href="{{ route('products.show', [$product->slug]) }}">
+                            <img class="w-72 h-72 object-cover" src="{{ $product->getMedia('*')[0]->getUrl() }}" alt="">
+                        </a>
                     </div>
                     <div class="font-semibold text-[13px] py-3">
                         <a href="{{ route('products.show', [$product->slug]) }}">
@@ -62,4 +53,7 @@
             @endforeach
         </div>
     </div>
+   <div class="pb-16 mr-24">
+       {{ $products->links() }}
+   </div>
 </div>

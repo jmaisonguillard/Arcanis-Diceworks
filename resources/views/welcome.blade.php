@@ -70,7 +70,7 @@
         <div>
             @livewire('featured-products')
         </div>
-        <div class="bg-dice-banner bg-cover w-full text-white text-center py-16 px-[36rem] flex flex-col items-center min-h-[500px] relative">
+        <div class="bg-dice-banner bg-cover w-full text-white text-center py-16 px-[36rem] flex flex-col items-center min-h-[500px] justify-center relative">
             <div class="h-full w-full bg-bunker absolute top-0 bottom-0 bg-opacity-30"></div>
             <h3 class="font-bold text-[54px] line leading-[68px] z-5">
                 {{ __('Create Your Legendary Roll!') }}

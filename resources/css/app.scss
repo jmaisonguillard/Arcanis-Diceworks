@@ -7,10 +7,15 @@
 }
 
 .header {
-    @apply flex flex-auto w-full flex-row;
+    @apply flex flex-auto w-full flex-row overflow-hidden;
     min-height: 704px;
     background: theme('colors.bunker');
     position: relative;
+
+    &.products {
+        background: theme('colors.heliotrope');
+        min-height: 628px;
+    }
 
     nav {
         @apply w-full;

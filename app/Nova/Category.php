@@ -4,20 +4,20 @@ namespace App\Nova;
 
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Textarea;
-use Ebess\AdvancedNovaMediaLibrary\Fields\Images;  // Import the Spatie Media Library field for images
+use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Product extends Resource
+class Category extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
-     * @var class-string<\App\Models\Product>
+     * @var class-string<\App\Models\Category>
      */
-    public static $model = \App\Models\Product::class;
+    public static $model = \App\Models\Category::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -32,10 +32,7 @@ class Product extends Resource
      * @var array
      */
     public static $search = [
-        'id',
-        'name',
-        'slug',
-        'description'
+        'id', 'name', 'slug', 'description'
     ];
 
     /**
@@ -58,25 +55,12 @@ class Product extends Resource
                 ->rules('required', 'max:255'),
 
             Textarea::make('Description')
-                ->alwaysShow()
-                ->rules('required'),
+                ->alwaysShow(),
 
-            Number::make('Price')
-                ->sortable()
-                ->rules('required', 'numeric', 'min:0')
-                ->step(0.01) // This ensures the price can have decimal values
-                ->displayUsing(function ($price) {
-                    return number_format($price, 2); // Ensures it displays with 2 decimal places
-                }),
+            Boolean::make('Is Active', 'is_active'),
 
-            Number::make('Stock Quantity')
-                ->rules('required', 'min:0')
-                ->sortable(),
-
-            Boolean::make('Is Customizable'),
-
-            // Spatie Media Library for managing product images
-            Images::make('Product Images', 'images')  // 'images' is the media collection name
+            // Managing the products associated with this category
+            BelongsToMany::make('Products', 'products', Product::class),
         ];
     }
 

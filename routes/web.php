@@ -2,9 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/', 'App\Http\Controllers\WebController@home')->name('welcome');
+Route::get('/about-us', 'App\Http\Controllers\WebController@about_us')->name('about-us');
+Route::get('/products', 'App\Http\Controllers\ProductController@index')->name('products');
+Route::get('/products/{slug}', \App\Livewire\Product::class)->name('products.show');
 
 
 Route::middleware([

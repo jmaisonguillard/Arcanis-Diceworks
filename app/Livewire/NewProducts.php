@@ -8,6 +8,7 @@ class NewProducts extends Component
 {
     public function render()
     {
-        return view('livewire.new-products');
+        $newestProducts = \App\Models\Product::newest()->get();
+        return view('livewire.new-products', compact('newestProducts'));
     }
 }
