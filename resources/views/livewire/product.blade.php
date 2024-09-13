@@ -11,7 +11,7 @@
             <h1 class="font-semibold text-4xl mb-4">{{ $product->name }}</h1>
             <h3 class="font-semibold text-3xl bf-4">${{ number_format($product->price, 2) }}</h3>
             <div class="flex flex-row justify-end mb-12">
-                <button class="bg-black rounded-full text-white py-4 px-8 w-auto flex flex-row justify-center items-center align-middle gap-x-4 text-[1rem] mt-4">
+                <button wire:click="addItem" class="bg-black rounded-full text-white py-4 px-8 w-auto flex flex-row justify-center items-center align-middle gap-x-4 text-[1rem] mt-4">
                     Add to Cart
                     <div class="bg-white text-black w-[34px] h-[34px] flex justify-center align-middle items-center rounded-full">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-[8px] h-[8px]">

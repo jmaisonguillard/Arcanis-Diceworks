@@ -11,7 +11,7 @@
                 </div>
             </div>
             <!-- Navigation Links -->
-            <div class="hidden  sm:-my-px sm:ms-10 sm:flex">
+            <div x-data="{ isCartOpen: false }" class="hidden  sm:-my-px sm:ms-10 sm:flex">
                 <x-nav-link class="mr-8" href="{{ route('welcome') }}" :active="request()->routeIs('welcome')">
                     {{ __('Home') }}
                 </x-nav-link>
@@ -34,7 +34,7 @@
                         </defs>
                     </svg>
                 </a>
-                <a href="#" class="relative top-[15px] bg-bastille w-[41px] h-[41px] flex justify-center items-center align-middle rounded-full">
+                <a @click="isCartOpen = !isCartOpen" href="#" class="relative top-[15px] bg-bastille w-[41px] h-[41px] flex justify-center items-center align-middle rounded-full">
                     <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0_53_948)">
                             <path d="M14.3904 14.1267C13.1701 14.1255 12.1799 15.1138 12.1787 16.3341C12.1775 17.5543 13.1658 18.5445 14.3861 18.5457C15.6064 18.5469 16.5965 17.5586 16.5977 16.3384C16.5977 16.3377 16.5977 16.337 16.5977 16.3362C16.5966 15.1173 15.6093 14.1291 14.3904 14.1267Z" fill="white"/>
@@ -48,6 +48,7 @@
                         </defs>
                     </svg>
                 </a>
+                @livewire('cart')
             </div>
             <!-- Hamburger -->
             <div class="-me-2 flex items-center sm:hidden">

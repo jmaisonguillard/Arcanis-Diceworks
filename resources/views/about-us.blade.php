@@ -34,7 +34,7 @@
                 @livewire('navigation-menu')
             </div>
             <h1 class="font-semibold text-6xl leading-[60px] text-white my-16 text-center">{{ __('About Us') }}</h1>
-            <div class="flex flex-row gap-x-4 max-w-7xl mx-auto text-white relative z-10">
+            <div class="flex flex-row gap-x-4 max-w-7xl mx-auto text-white relative z-5">
                 <div class="bg-heliotrope border border-mine p-12">
                     <div class="py-4">
                         <svg width="57" height="57" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg">
