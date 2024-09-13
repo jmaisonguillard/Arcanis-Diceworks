@@ -2,6 +2,31 @@
     use Carbon\Carbon;
 @endphp
 
+@section('title')
+    {{ config('app.name', 'Arcanis Diceworks') }} - {{ $product->name }}
+@endsection
+
+@section('meta-data')
+    <meta name="description" content="{{ $product->meta_description }}">
+    <meta name="title" content="{{ $product->meta_title }}">
+    <meta name="keywords" content="{{ $product->meta_keywords }}">
+@endsection
+
+@section('og-data')
+    <meta property="og:title" content="{{ $product->name }}" />
+    <meta property="og:description" content="{{ $product->description }}" />
+    <meta property="og:image" content="{{ $product->getMedia('*')[0]->getUrl() }}" />
+    <meta property="og:type" content="product" />
+    <meta property="og:url" content="{{ url()->current() }}" />
+@endsection
+
+@section('twitter-card-data')
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $product->name }}">
+    <meta name="twitter:description" content="{{ $product->description }}">
+    <meta name="twitter:image" content="{{ $product->getMedia('*')[0]->getUrl() }}">
+@endsection
+
 <div class="max-w-7xl mx-auto my-16">
     <div class="flex flex-row gap-x-8 mb-12">
         <div>

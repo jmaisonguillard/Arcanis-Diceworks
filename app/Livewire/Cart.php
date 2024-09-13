@@ -2,6 +2,9 @@
 
 namespace App\Livewire;
 
+use App\Nova\User;
+use Illuminate\Support\Facades\Session;
+use Laravel\Cashier\Checkout;
 use Livewire\Component;
 
 class Cart extends Component
@@ -9,6 +12,23 @@ class Cart extends Component
     public $products = [];
 
     protected $listeners = ['add-to-cart' => 'handleAddToCart'];
+
+    // Load the cart from session when the component is initialized
+    public function mount()
+    {
+        $this->loadCartFromSession();
+    }
+
+    public function getCartCount()
+    {
+        $totalQuantity = 0;
+
+        foreach ($this->products as $item) {
+            $totalQuantity += $item['quantity'];
+        }
+
+        return $totalQuantity;
+    }
 
     public function handleAddToCart(\App\Models\Product $product)
     {
@@ -25,6 +45,9 @@ class Cart extends Component
                 'quantity' => 1,
             ];
         }
+
+        // Save cart to session after modifying
+        $this->saveCartToSession();
     }
 
     // Increment the quantity of an existing product in the cart
@@ -36,6 +59,9 @@ class Cart extends Component
                 break;
             }
         }
+
+        // Save cart to session after modifying
+        $this->saveCartToSession();
     }
 
     // Decrement the quantity of an existing product in the cart
@@ -47,6 +73,49 @@ class Cart extends Component
                 break;
             }
         }
+
+        // Save cart to session after modifying
+        $this->saveCartToSession();
+    }
+
+    // Load the cart from session
+    public function loadCartFromSession()
+    {
+        if (Session::has('cart')) {
+            $this->products = Session::get('cart');
+        }
+    }
+
+    // Clear the cart
+    public function clearCart()
+    {
+        $this->products = [];
+        Session::forget('cart');
+    }
+
+    // Save the cart to session
+    public function saveCartToSession()
+    {
+        Session::put('cart', $this->products);
+    }
+
+    // Method to get an array of stripe_price_id and quantity
+    public function getStripePriceIdsAndQuantities()
+    {
+        // Use array_map to extract stripe_price_id and quantity
+        return array_map(function ($item) {
+            return [
+                $item['product']['stripe_price_id'] => $item['quantity'],
+            ];
+        }, $this->products);
+    }
+
+    public function goToCheckout() {
+        dd($this->getStripePriceIdsAndQuantities());
+        return Checkout::guest()->create($this->getStripePriceIdsAndQuantities(), [
+            'success_url' => route('order.success'),
+            'cancel_url' => route('order.cancel'),
+        ]);
     }
 
     public function render()

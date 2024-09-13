@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Stripe\Stripe;
 
 class Product extends Model implements HasMedia
 {
@@ -13,6 +14,17 @@ class Product extends Model implements HasMedia
     use InteractsWithMedia;
 
     protected $fillable = ['name', 'slug', 'description', 'price', 'stock_quantity', 'is_customizable', 'is_limited_edition', 'meta_title', 'meta_description'];
+
+    // Boot method for the Product model
+    protected static function boot()
+    {
+        parent::boot();
+
+        // Hook into the created event to create a Stripe product
+        static::created(function ($product) {
+            $product->createStripeProduct();
+        });
+    }
 
     /**
      * Define media conversions like thumbnails or previews.
@@ -85,5 +97,36 @@ class Product extends Model implements HasMedia
         }
 
         return $recommendedProducts;
+    }
+
+    public function createStripeProduct()
+    {
+        // Set the Stripe API key
+        Stripe::setApiKey(env('STRIPE_SECRET'));
+
+        try {
+            // Step 1: Create a product in Stripe
+            $stripeProduct = \Stripe\Product::create([
+                'name' => $this->name,
+                'description' => $this->description,
+            ]);
+
+            // Step 2: Create a price in Stripe
+            $stripePrice = \Stripe\Price::create([
+                'product' => $stripeProduct->id,
+                'unit_amount' => $this->price * 100, // Price in cents
+                'currency' => 'usd', // Set your desired currency
+            ]);
+
+            // Step 3: Save the Stripe product and price IDs to the database
+            $this->update([
+                'stripe_product_id' => $stripeProduct->id,
+                'stripe_price_id' => $stripePrice->id,
+            ]);
+
+        } catch (\Exception $e) {
+            // Handle error if Stripe product creation fails
+            \Log::error('Stripe Product Creation Failed: ' . $e->getMessage());
+        }
     }
 }

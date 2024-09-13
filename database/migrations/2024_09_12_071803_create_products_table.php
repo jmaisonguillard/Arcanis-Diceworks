@@ -39,6 +39,8 @@ return new class extends Migration
             $table->timestamp('discount_start_date')->nullable();
             $table->timestamp('discount_end_date')->nullable();
             $table->boolean('is_active')->default(true);
+            $table->string('stripe_product_id')->nullable();
+            $table->string('stripe_price_id')->nullable();
             $table->timestamps();
         });
     }
