@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[x-cloak] {
+    display: none;
+}
+
+.header {
+    @apply flex flex-auto w-full flex-row;
+    min-height: 704px;
+    background: theme('colors.bunker');
+    position: relative;
+
+    nav {
+        @apply w-full;
+        a {
+            @apply text-white;
+        }
+    }
+
+    .cta {
+        background: theme('colors.heliotrope');
+    }
+}

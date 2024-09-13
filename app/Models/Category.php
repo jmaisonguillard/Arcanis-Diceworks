@@ -14,7 +14,7 @@ class Category extends Model
     /**
      * Relationship: A category can have many products.
      */
-    public function products()
+    public function products(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
         return $this->belongsToMany(Product::class);
     }
@@ -22,7 +22,7 @@ class Category extends Model
     /**
      * Relationship: A category can have children (subcategories).
      */
-    public function children()
+    public function children(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Category::class, 'parent_id');
     }
@@ -30,7 +30,7 @@ class Category extends Model
     /**
      * Relationship: A category can belong to a parent category.
      */
-    public function parent()
+    public function parent(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Category::class, 'parent_id');
     }
