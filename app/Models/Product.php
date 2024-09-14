@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
@@ -128,5 +129,11 @@ class Product extends Model implements HasMedia
             // Handle error if Stripe product creation fails
             \Log::error('Stripe Product Creation Failed: ' . $e->getMessage());
         }
+    }
+
+    protected function primaryPhoto() : Attribute {
+        return Attribute::make(
+            get: fn() => $this->getMedia('*')[0]->getUrl(),
+        );
     }
 }

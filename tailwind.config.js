@@ -11,6 +11,8 @@ export default {
         './resources/views/**/*.blade.php',
     ],
 
+    darkMode: ['selector', '[data-mode="dark"]'],
+
     theme: {
         extend: {
             fontFamily: {
@@ -19,7 +21,8 @@ export default {
             backgroundImage: {
                 "dice-banner": "url('https://arcanis-diceworks.test/images/stock/dice_banner.png')",
                 "dice-masked": "url('https://arcanis-diceworks.test/images/stock/d20_masked.png')",
-                "logo": "url('https://arcanis-diceworks.test/images/emblems/emblem-white-arcanis-diceworks.svg')"
+                "logo": "url('https://arcanis-diceworks.test/images/emblems/emblem-white-arcanis-diceworks.svg')",
+                "dice": "url('https://arcanis-diceworks.test/images/stock/stock_dice.png')",
             },
             colors: {
                 'bunker': '#0B1013',

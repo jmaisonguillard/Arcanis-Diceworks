@@ -16,12 +16,12 @@ return new class extends Migration
 
             // Customer details (name, email, etc.)
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->string('customer_name');
-            $table->string('customer_email');
-            $table->text('shipping_address');
-            $table->string('city');
-            $table->string('postal_code');
-            $table->string('country');
+            $table->string('customer_name')->nullable();
+            $table->string('customer_email')->nullable();
+            $table->text('shipping_address')->nullable();
+            $table->string('city')->nullable();
+            $table->string('postal_code')->nullable();
+            $table->string('country')->nullable();
 
             // Order status and payment fields
             $table->string('status')->default('pending');  // 'pending', 'processing', 'completed'

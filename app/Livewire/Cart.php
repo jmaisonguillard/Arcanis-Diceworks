@@ -2,7 +2,9 @@
 
 namespace App\Livewire;
 
+use App\Models\Order;
 use App\Nova\User;
+use GPBMetadata\Google\Api\Auth;
 use Illuminate\Support\Facades\Session;
 use Laravel\Cashier\Checkout;
 use Livewire\Component;
@@ -102,19 +104,58 @@ class Cart extends Component
     // Method to get an array of stripe_price_id and quantity
     public function getStripePriceIdsAndQuantities()
     {
-        // Use array_map to extract stripe_price_id and quantity
-        return array_map(function ($item) {
-            return [
-                $item['product']['stripe_price_id'] => $item['quantity'],
-            ];
-        }, $this->products);
+        $items = [];
+
+        foreach ($this->products as $product) {
+            $items = [...$items, $product['product']['stripe_price_id'] => $product['quantity']];
+        }
+
+        return $items;
+    }
+
+    public function getCartPrice()
+    {
+        $totalPrice = 0;
+
+        foreach ($this->products as $product) {
+            $totalPrice += $product['quantity'] * $product['product']['price'];
+        }
+
+        return $totalPrice;
     }
 
     public function goToCheckout() {
-        dd($this->getStripePriceIdsAndQuantities());
+        $order = Order::create([
+            'total_price' => $this->getCartPrice(),
+        ]);
+
+        foreach ($this->products as $product) {
+            $order->orderItems()->create([
+                'order_id' => $order->id,
+                'product_id' => $product['product']['id'],
+                'product_name' => $product['product']['name'],
+                'price' => $product['product']['price'],
+                'quantity' => $product['quantity'],
+            ]);
+        }
+
+        $order->save();
+
+
         return Checkout::guest()->create($this->getStripePriceIdsAndQuantities(), [
-            'success_url' => route('order.success'),
+            'success_url' => route('order.success', ['order' => $order->id]) . '&session_id={CHECKOUT_SESSION_ID}',
             'cancel_url' => route('order.cancel'),
+            'metadata' => [
+                'order_id' => $order->id,
+                'user_id' => \Illuminate\Support\Facades\Auth::check() ? \Illuminate\Support\Facades\Auth::user()->id : null,
+            ],
+            'billing_address_collection' => 'required',
+            'shipping_address_collection' => [
+                'allowed_countries' => ['US', 'CA']
+            ],
+            'shipping_options' => [
+                ['shipping_rate' => env('STRIPE_SHIPPING_RATE')]
+            ],
         ]);
     }
 

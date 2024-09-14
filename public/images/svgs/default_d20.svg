@@ -8,7 +8,4 @@
     <path d="M22.3576 36.0525H43.139L27.2683 12.455L11.3975 36.0525H18.3474" stroke="currentColor" stroke-width="2.2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M27.7627 58.9162L43.1398 36.0527" stroke="currentColor" stroke-width="2.2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M11.3975 36.0527L26.7746 58.9162" stroke="currentColor" stroke-width="2.2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-
-    <!-- Add the number "1" -->
-    <text x="24" y="33" fill="currentColor" font-size="16" font-family="Poppins" font-weight="bold">1</text>
 </svg>
