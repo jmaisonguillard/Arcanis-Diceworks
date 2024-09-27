@@ -9,6 +9,10 @@ Route::get('/products/{slug}', \App\Livewire\Product::class)->name('products.sho
 Route::get('/order/success', 'App\Http\Controllers\OrderController@success')->name('order.success');
 Route::get('/order/cancel', 'App\Http\Controllers\OrderController@cancel')->name('order.cancel');
 Route::get('/orders', \App\Livewire\Orders::class)->name('orders');
+Route::get('/3d', function() {
+    return view('3d');
+});
+Route::get('customize', \App\Livewire\CustomizeDice::class)->name('customize');
 
 Route::middleware([
     'auth:sanctum',

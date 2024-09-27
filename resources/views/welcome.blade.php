@@ -78,7 +78,7 @@
             <p class="z-5">
                 {{ __("Customize your Dungeons & Dragons dice to match your unique character. Choose colors, designs, and engravings for an adventure that's truly your own.") }}
             </p>
-            <a href="#" class="rounded-full bg-white text-bunker flex flex-row justify-center items-center py-2 px-4 mt-4 w-fit z-5">
+            <a href="{{ route('customize') }}" class="rounded-full bg-white text-bunker flex flex-row justify-center items-center py-2 px-4 mt-4 w-fit z-5">
                 {{ __('Customize Your Dice') }}
                 <div class="bg-bunker text-white rounded-full w-8 h-8 flex justify-center items-center ml-4">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3">

@@ -5,7 +5,9 @@
                 <div class="flex flex-col h-full">
                     <div class="grow py-8 px-16 flex flex-col">
                         <div class="flex justify-center">
-                            <x-application-mark class="block h-9 w-auto"/>
+                            <a href="{{ route('welcome') }}">
+                                <x-application-mark class="block h-9 w-auto"/>
+                            </a>
                         </div>
                         <h1 class="font-semibold text-5xl mt-24">{{ __('Reset Password') }}</h1>
                         <p class="font-normal leading-6 py-8">{{ __('The arcane runes seem to have slipped your mind. Let us help you recover your path to the Diceworks.') }}</p>
