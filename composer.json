@@ -25,7 +25,8 @@
         "spatie/laravel-analytics": "^5.4",
         "spatie/laravel-medialibrary": "^11.9",
         "spatie/laravel-options": "^1.1",
-        "stripe/stripe-php": "^13.18"
+        "stripe/stripe-php": "^13.18",
+        "arcanis/array-of-strings": "@dev"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -89,6 +90,10 @@
         "0": {
             "type": "composer",
             "url": "https://nova.laravel.com"
+        },
+        "1": {
+            "type": "path",
+            "url": "./nova-components/ArrayOfStrings"
         }
     }
 }

@@ -3,7 +3,9 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "build-array-of-strings": "cd nova-components/ArrayOfStrings && npm run dev",
+        "build-array-of-strings-prod": "cd nova-components/ArrayOfStrings && npm run prod"
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.7",
