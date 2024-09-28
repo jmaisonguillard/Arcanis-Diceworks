@@ -4,44 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b1576a007a12ae6eeac9434acfbd12e3",
+    "content-hash": "ac9e1de08967460ea52580dddc7deb37",
     "packages": [
-        {
-            "name": "arcanis/array-of-strings",
-            "version": "dev-main",
-            "dist": {
-                "type": "path",
-                "url": "./nova-components/ArrayOfStrings",
-                "reference": "63502eb5af75f9c651879c8dd99ab2e7d2aa9f72"
-            },
-            "require": {
-                "php": "^7.3|^8.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Arcanis\\ArrayOfStrings\\FieldServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Arcanis\\ArrayOfStrings\\": "src/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "A Laravel Nova field.",
-            "keywords": [
-                "laravel",
-                "nova"
-            ],
-            "transport-options": {
-                "relative": true
-            }
-        },
         {
             "name": "artesaos/seotools",
             "version": "v1.3.1",
@@ -12148,9 +12112,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "arcanis/array-of-strings": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
