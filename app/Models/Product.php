@@ -131,6 +131,16 @@ class Product extends Model implements HasMedia
         }
     }
 
+    public function colors()
+    {
+        return $this->belongsToMany(Color::class)->withPivot('quantity', 'price', 'image');
+    }
+
+    public function productColors()
+    {
+        return $this->hasMany(ProductColor::class);
+    }
+
     protected function primaryPhoto() : Attribute {
         return Attribute::make(
             get: fn() => $this->getMedia('*')[0]->getUrl(),

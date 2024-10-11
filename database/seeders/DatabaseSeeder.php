@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
+            'password' => bcrypt('secret')
         ]);
 
         User::factory()->create([
@@ -41,5 +42,11 @@ class DatabaseSeeder extends Seeder
             // Attach 3 random tags to each product
             $product->tags()->attach($tags->random(3));
         });
+
+        // Call the color and product color seeders
+        $this->call([
+            ColorSeeder::class,
+            ProductColorSeeder::class,
+        ]);
     }
 }

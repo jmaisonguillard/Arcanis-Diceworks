@@ -347,72 +347,72 @@
                 {
                     "name": "Galaxy",
                     "hex": [
-                        "#6D3F5B",
-                        "#A86FA3"
+                        "#6A3055",
+                        "#967CA6"
                     ],
                     "id": "chameleon-powder-56a43e2e-6613-4606-9ea6-f77fe1c77b48"
                 },
                 {
                     "name": "Mint",
                     "hex": [
-                        "#A3C581",
-                        "#8EE89C"
+                        "#A5C98B",
+                        "#BAC49C"
                     ],
                     "id": "chameleon-powder-ecc1eef5-10f6-4807-904d-931702b357fb"
                 },
                 {
                     "name": "Champagne",
                     "hex": [
-                        "#F4D8A1",
-                        "#F7E0C1"
+                        "#F3D3B3",
+                        "#F9E0C4"
                     ],
                     "id": "chameleon-powder-efea8a95-954f-41ad-959d-cea69054bde4"
                 },
                 {
                     "name": "Grape",
                     "hex": [
-                        "#6B4690",
-                        "#B088D6"
+                        "#7D4EAB",
+                        "#AB83D1"
                     ],
                     "id": "chameleon-powder-455dae77-2d54-403d-8083-48350f94ede2"
                 },
                 {
                     "name": "Magenta",
                     "hex": [
-                        "#D12A5C",
-                        "#FF5A88"
+                        "#E3385F",
+                        "#FF6E8A"
                     ],
                     "id": "chameleon-powder-f3f788cb-970c-4a93-a6bd-b0245cee0334"
                 },
                 {
                     "name": "Golden",
                     "hex": [
-                        "#B8944E",
-                        "#FFD68E"
+                        "#B38F4D",
+                        "#F4C672"
                     ],
                     "id": "chameleon-powder-98307215-956c-4c9c-bca1-337ad2494256"
                 },
                 {
                     "name": "Plum",
                     "hex": [
-                        "#80304B",
-                        "#A96275"
+                        "#8C364C",
+                        "#BB657D"
                     ],
                     "id": "chameleon-powder-a4a68af0-4313-460a-9ca4-904e38f119ef"
                 },
                 {
                     "name": "Blue",
                     "hex": [
-                        "#356B94",
-                        "#6CAEDB"
+                        "#345E9A",
+                        "#5F94D2"
                     ],
                     "id": "chameleon-powder-d7e1c23c-a1c3-48c7-ae56-058ae11a3bc1"
                 },
                 {
                     "name": "Olive",
                     "hex": [
-                        "#A3A469",
-                        "#C6CC7E"
+                        "#A2A86B",
+                        "#CACF88"
                     ],
                     "id": "chameleon-powder-acb91752-4c05-4a52-8b0f-3587219ab3c0"
                 }
@@ -1442,32 +1442,27 @@
             "chameleon": [
                 {
                     "name": "Violet",
-                    "start_color": "#8B00FF",
-                    "end_color": "#00FFB3",
+                    "hex": ["#8B00FF", "#00FFB3"],
                     "id": "chameleon-flakes-20215b4a-7d75-46e7-9906-e14da5814f9e"
                 },
                 {
                     "name": "Lime",
-                    "start_color": "#32CD32",
-                    "end_color": "#0000FF",
+                    "hex": ["#32CD32", "#0000FF"],
                     "id": "chameleon-flakes-9af98bcf-a8f8-4be3-8885-298eb41c03c9"
                 },
                 {
                     "name": "Blue",
-                    "start_color": "#0000FF",
-                    "end_color": "#FF00FF",
+                    "hex": ["#0000FF", "#FF00FF"],
                     "id": "chameleon-flakes-786d52da-3231-4561-a5b1-1aff5e002cf6"
                 },
                 {
                     "name": "Fuchsia",
-                    "start_color": "#FF00FF",
-                    "end_color": "#FFD700",
+                    "hex": ["#FF00FF", "#FFD700"],
                     "id": "chameleon-flakes-f3a5b235-03d3-4472-a507-d03878a3ac6e"
                 },
                 {
                     "name": "Green",
-                    "start_color": "#00FF00",
-                    "end_color": "#00FFFF",
+                    "hex": ["#00FF00", "#00FFFF"],
                     "id": "chameleon-flakes-edeae0d0-38c4-48de-b2d6-ac1e8ea0d4cc"
                 }
             ]

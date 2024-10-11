@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Order;
+use App\Models\ProductColor;
 use App\Nova\User;
 use GPBMetadata\Google\Api\Auth;
 use Illuminate\Support\Facades\Session;
@@ -32,7 +33,7 @@ class Cart extends Component
         return $totalQuantity;
     }
 
-    public function handleAddToCart(\App\Models\Product $product)
+    public function handleAddToCart(\App\Models\Product $product, ProductColor | null $color)
     {
         $existingItem = collect($this->products)->firstWhere('product.id', $product->id);
 
@@ -45,6 +46,7 @@ class Cart extends Component
                 'product' => $product,
                 'preview' => $product->getMedia('*')[0]->getUrl(),
                 'quantity' => 1,
+                'productColor' => $color
             ];
         }
 

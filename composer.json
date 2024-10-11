@@ -1,5 +1,5 @@
 {
-    "name": "laravel/laravel",
+    "name": "arcanis/diceworks",
     "type": "project",
     "description": "The skeleton application for the Laravel framework.",
     "keywords": [
@@ -25,7 +25,8 @@
         "spatie/laravel-analytics": "^5.4",
         "spatie/laravel-medialibrary": "^11.9",
         "spatie/laravel-options": "^1.1",
-        "stripe/stripe-php": "^13.18"
+        "stripe/stripe-php": "^13.18",
+        "arcanis/lowstockproductscard": "@dev"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -89,6 +90,22 @@
         "0": {
             "type": "composer",
             "url": "https://nova.laravel.com"
+        },
+        "1": {
+            "type": "path",
+            "url": "./nova-components/LowStockProductsCard"
+        },
+        "2": {
+            "type": "path",
+            "url": "./nova-components/Lowstockproductscard"
+        },
+        "3": {
+            "type": "path",
+            "url": "./nova-components/Lowstockproductscard"
+        },
+        "4": {
+            "type": "path",
+            "url": "./nova-components/Lowstockproductscard"
         }
     }
 }

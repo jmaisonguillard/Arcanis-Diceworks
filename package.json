@@ -3,7 +3,11 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "build-LowStockProductsCard": "cd nova-components/LowStockProductsCard && npm run dev",
+        "build-LowStockProductsCard-prod": "cd nova-components/LowStockProductsCard && npm run prod",
+        "build-lowstockproductscard": "cd nova-components/Lowstockproductscard && npm run dev",
+        "build-lowstockproductscard-prod": "cd nova-components/Lowstockproductscard && npm run prod"
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.7",

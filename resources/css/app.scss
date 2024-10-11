@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 @import "dice";
+@import "fontawesome/fontawesome";
+@import "fontawesome/light";
+@import "fontawesome/solid";
 
 [x-cloak] {
     display: none;

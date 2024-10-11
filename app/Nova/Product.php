@@ -2,6 +2,8 @@
 
 namespace App\Nova;
 
+use App\Nova\Lenses\LowStockProducts;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Number;
@@ -24,7 +26,7 @@ class Product extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'name';
 
     /**
      * The columns that should be searched.
@@ -57,6 +59,10 @@ class Product extends Resource
                 ->sortable()
                 ->rules('required', 'max:255'),
 
+            Text::make('SKU', 'sku'),
+
+
+
             Textarea::make('Description')
                 ->alwaysShow()
                 ->rules('required'),
@@ -74,9 +80,12 @@ class Product extends Resource
                 ->sortable(),
 
             Boolean::make('Is Customizable'),
+            Boolean::make('Is Active'),
 
             // Spatie Media Library for managing product images
-            Images::make('Product Images', 'images')  // 'images' is the media collection name
+            Images::make('Product Images', 'images'),  // 'images' is the media collection name
+
+            HasMany::make('Product Colors', 'productColors', ProductColor::class),
         ];
     }
 
@@ -110,7 +119,9 @@ class Product extends Resource
      */
     public function lenses(NovaRequest $request)
     {
-        return [];
+        return [
+            new LowStockProducts,
+        ];
     }
 
     /**
